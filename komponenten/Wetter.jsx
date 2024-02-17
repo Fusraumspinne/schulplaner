@@ -35,7 +35,9 @@ export default function Mitteilungen() {
                 {loading ? (
                     <>
                         <p>Laden...</p>
-                        <Button onClick={fetchWetter} variant='secondary'>Aktualisiern</Button>                    
+                        <div style={{display:"none"}}>
+                            <Button onClick={fetchWetter} variant='secondary'>Aktualisiern</Button>                    
+                        </div>
                     </>
                 ) : (
                     <>
