@@ -1,5 +1,6 @@
 import Mitteilungen from "@/komponenten/Mitteilungen"
 import Stundenplan from "@/komponenten/Stundenplan"
+import Wetter from "@/komponenten/Wetter"
 
 export default function Startseite() {
 
@@ -11,6 +12,7 @@ export default function Startseite() {
                 </div>
                 <div className="col-3">
                     <Mitteilungen/>
+                    <Wetter/>
                 </div>
             </div>
         </div>
