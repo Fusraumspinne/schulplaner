@@ -48,7 +48,8 @@ export default function Hausaufgaben() {
     }    
 
     return (
-        <Card bg='dark' data-bs-theme="dark" className='mx-3 mt-3'>
+        <div className='container-fluid'>
+            <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
             <Card.Body>
                 <div className='row mt-4'>
                     <div className='col-9'>
@@ -109,5 +110,7 @@ export default function Hausaufgaben() {
                 </Table>
             </Card.Body>
         </Card>
+        </div>
+        
     );
 }
