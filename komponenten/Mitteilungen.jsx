@@ -40,7 +40,7 @@ export default function Mitteilungen() {
                         </div>
                     ))
                 ) : (
-                    <p>Keine (nich erledigten) Hausaufgaben für morgen.</p>
+                    <p>Keine (nicht erledigten) Hausaufgaben für morgen.</p>
                 )}
             </Card.Body>
         </Card>
