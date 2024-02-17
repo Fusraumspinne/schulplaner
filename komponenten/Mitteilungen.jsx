@@ -10,7 +10,7 @@ export default function Mitteilungen() {
             setHausaufgaben(JSON.parse(storedHausaufgaben));
         }
     }, []);
-    
+
     const formatDate = (date) => {
         const d = new Date(date);
         const year = d.getFullYear();
@@ -28,11 +28,12 @@ export default function Mitteilungen() {
     const hausafgabenMorgenNichtErledigt = hausaufgaben.filter(aufgabe => aufgabe.datum === tomorrowFormatted && !aufgabe.erledigt);
 
     return (
-        <Card bg='dark' data-bs-theme="dark" className='mx-3 mt-3'>
+        <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
             <Card.Title className='d-flex justify-content-center mt-2'>
                 Mitteilungen
             </Card.Title>
             <Card.Body>
+                <p style={{color:"red", textDecoration:"underline", fontWeight:"600"}}>Bisher ist die Nutzung der Website nicht auf Handys möglich, da das Design noch nicht kompatibel ist!</p>
                 {hausafgabenMorgenNichtErledigt.length > 0 ? (
                     hausafgabenMorgenNichtErledigt.map((aufgabe, index) => (
                         <div key={index}>
