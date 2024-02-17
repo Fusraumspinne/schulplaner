@@ -50,7 +50,7 @@ export default function Mitteilungen() {
                             </>
                         )}
                         {!wetter.name && (
-                            <p>Wetterdaten nicht verfügbar!</p>
+                            <p>Wetterdaten nicht verfügbar!!!</p>
                         )}
                     </>
                 )}
