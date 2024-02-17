@@ -34,7 +34,7 @@ export default function Mitteilungen() {
             <Card.Body>
                 {loading ? (
                     <>
-                        <p>Laden...</p>
+                        <p>Laden... Hilfe</p>
                         <Button onClick={fetchWetter} variant='secondary'>Aktualisiern</Button>                    
                     </>
                 ) : (
