@@ -1,5 +1,6 @@
 import { Card, Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import axios from "axios";
 
 export default function Mitteilungen() {
     const [stadt, setStadt] = useState("");
@@ -9,21 +10,15 @@ export default function Mitteilungen() {
     const url = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=gladbeck&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
 
     const fetchWetter = () => {
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
+        axios.get(url)
+            .then((response) => {
+                setWetter(response.data);
+                setLoading(false); 
+                console.log(response.data);
             })
-            .then(data => {
-                setWetter(data);
-                setLoading(false);
-                console.log(data);
-            })
-            .catch(error => {
+            .catch((error) => {
                 console.error("Error fetching weather data:", error);
-                setLoading(false);
+                setLoading(false); 
             });
     };
 
@@ -39,8 +34,8 @@ export default function Mitteilungen() {
             <Card.Body>
                 {loading ? (
                     <>
-                        <p>Laden...</p>
-                        <Button onClick={fetchWetter} variant='secondary'>Aktualisiern</Button>
+                        <p>Laden... Ich brauche Hilfe</p>
+                        <Button onClick={fetchWetter} variant='secondary'>Aktualisiern</Button>                    
                     </>
                 ) : (
                     <>
@@ -55,7 +50,7 @@ export default function Mitteilungen() {
                             </>
                         )}
                         {!wetter.name && (
-                            <p>Wetterdaten nicht verfügbar!</p>
+                            <p>Wetterdaten nicht verfügbar!!!</p>
                         )}
                     </>
                 )}
