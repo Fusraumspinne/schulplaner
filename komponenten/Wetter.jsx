@@ -23,7 +23,7 @@ export default function Mitteilungen() {
     };
 
     useEffect(() => {
-        //fetchWetter();
+        fetchWetter();
     }, []);
 
     return (
