@@ -1,6 +1,5 @@
 import { Card, Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import axios from "axios";
 
 export default function Mitteilungen() {
     const [stadt, setStadt] = useState("");
@@ -10,15 +9,21 @@ export default function Mitteilungen() {
     const url = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=gladbeck&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
 
     const fetchWetter = () => {
-        axios.get(url)
-            .then((response) => {
-                setWetter(response.data);
-                setLoading(false); 
-                console.log(response.data);
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
             })
-            .catch((error) => {
+            .then(data => {
+                setWetter(data);
+                setLoading(false);
+                console.log(data);
+            })
+            .catch(error => {
                 console.error("Error fetching weather data:", error);
-                setLoading(false); 
+                setLoading(false);
             });
     };
 
@@ -35,7 +40,7 @@ export default function Mitteilungen() {
                 {loading ? (
                     <>
                         <p>Laden... Ich brauche Hilfe</p>
-                        <Button onClick={fetchWetter} variant='secondary'>Aktualisiern</Button>                    
+                        <Button onClick={fetchWetter} variant='secondary'>Aktualisiern</Button>
                     </>
                 ) : (
                     <>
