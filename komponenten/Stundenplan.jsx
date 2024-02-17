@@ -83,7 +83,7 @@ export default function Stundenplan() {
                 Stundenplan
             </Card.Title>
             <Card.Body>
-                <Table striped bordered hover responsive>
+                <Table striped bordered responsive>
                     <thead>
                         <tr>
                             <th>Stunde</th>
