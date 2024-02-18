@@ -7,9 +7,9 @@ import Taschenrechner from "@/komponenten/Taschenrechner"
 export default function Startseite() {
 
     return (
-        <div className="container-fluid mb-5">
+        <div className="container-fluid">
             <div className='row'>
-                <div className="col-9 container_start">
+                <div className="col-9 container_start pb-5">
                     <Stundenplan/>
                     <div className="row">
                         <div className="col-6">
@@ -20,7 +20,7 @@ export default function Startseite() {
                         </div>
                     </div>
                 </div>
-                <div className="col-3 container_start">
+                <div className="col-3 container_start pb-5">
                     <Mitteilungen/>
                     <Wetter/>
                     <Info/>
