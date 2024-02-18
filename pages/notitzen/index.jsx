@@ -26,6 +26,9 @@ export default function Notizen() {
     return (
         <div className='container-fluid'>
             <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
+                <Card.Title className='d-flex ms-3 mt-2 fs-2'>
+                    Deine Notizen
+                </Card.Title>
                 <Card.Body>
                     <textarea 
                         value={notizen} 

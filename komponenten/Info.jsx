@@ -45,6 +45,18 @@ export default function Info() {
                             Später wird man alles selber konfiguieren können.
                         </Accordion.Body>
                     </Accordion.Item>
+                    <Accordion.Item eventKey="5">
+                        <Accordion.Header>Taschenrechner</Accordion.Header>
+                        <Accordion.Body>
+                            Eingebauter Taschenrechner auf die Startseite.
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="6">
+                        <Accordion.Header>Anstehende KA und Events</Accordion.Header>
+                        <Accordion.Body>
+                            Mitteilungen wenn KA und Events.
+                        </Accordion.Body>
+                    </Accordion.Item>
                 </Accordion>
             </Card.Body>
         </Card>
