@@ -23,7 +23,7 @@ export default function Mitteilungen() {
     };
 
     useEffect(() => {
-        fetchWetter();
+        //fetchWetter();
     }, []);
 
     return (
@@ -44,10 +44,15 @@ export default function Mitteilungen() {
                         {wetter.name && (
                             <>
                                 <p className='fs-3'>{wetter.name}</p>
+                                <div className="border-top border-2 border-secondary mb-2"></div>
                                 <p>{"Wetter: " + wetter.weather[0].main}</p>
+                                <div className="border-top border-2 border-secondary mb-2"></div>
                                 <p>{"Temperatur: " + Math.round(wetter.main.temp) + "°c"}</p>
+                                <div className="border-top border-2 border-secondary mb-2"></div>
                                 <p>{"min: " + Math.round(wetter.main.temp_min) + "°c" + " | max: " + Math.round(wetter.main.temp_max) + "°c"}</p>
+                                <div className="border-top border-2 border-secondary mb-2"></div>
                                 <p>{"Luftfeuchtigkeit: " + wetter.main.humidity + "%"}</p>
+                                <div className="border-top border-2 border-secondary mb-2"></div>
                                 <p>{"Windgeschwindigkeit: " + wetter.wind.speed + "km/h"}</p>
                             </>
                         )}

@@ -37,11 +37,15 @@ export default function Mitteilungen() {
                 {hausafgabenMorgenNichtErledigt.length > 0 ? (
                     hausafgabenMorgenNichtErledigt.map((aufgabe, index) => (
                         <div key={index}>
+                            <div className="border-top border-2 border-secondary mb-2"></div>
                             <p><span>Die Hausaufgabe: </span> <span style={{ fontWeight: "700" }}>{aufgabe.aufgabe}</span> muss in <span style={{ fontWeight: "700" }}>{aufgabe.fach}</span> für morgen gemacht werden!</p>
                         </div>
                     ))
                 ) : (
-                    <p>Keine (nicht erledigten) Hausaufgaben für morgen.</p>
+                    <>
+                        <div className="border-top border-2 border-secondary mb-2"></div>
+                        <p>Keine (nicht erledigten) Hausaufgaben für morgen.</p>                    
+                    </>
                 )}
             </Card.Body>
         </Card>
