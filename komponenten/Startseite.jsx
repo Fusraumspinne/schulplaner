@@ -10,6 +10,7 @@ export default function Startseite() {
             <div className='row mt-4'>
                 <div className="col-9 container_start">
                     <Stundenplan/>
+                    <Stundenplan/>
                 </div>
                 <div className="col-3 container_start">
                     <Mitteilungen/>
