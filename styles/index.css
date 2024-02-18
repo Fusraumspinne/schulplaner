@@ -1,0 +1,22 @@
+.container_start::-webkit-scrollbar {
+    display: none;
+}
+
+.container_start{
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+}
+
+.warning_text{
+    color: red;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.span_hausaufgaben{
+    font-weight: 700;
+}
+
+.wetter_button{
+    display: none;
+}

@@ -33,12 +33,12 @@ export default function Mitteilungen() {
                 Mitteilungen
             </Card.Title>
             <Card.Body>
-                <p style={{color:"red", textDecoration:"underline", fontWeight:"600"}}>Bisher ist die Nutzung der Website nicht auf Handys möglich, da das Design noch nicht kompatibel ist!</p>
+                <p className='warning_text'>Bisher ist die Nutzung der Website nicht auf Handys möglich, da das Design noch nicht kompatibel ist!</p>
                 {hausafgabenMorgenNichtErledigt.length > 0 ? (
                     hausafgabenMorgenNichtErledigt.map((aufgabe, index) => (
                         <div key={index}>
                             <div className="border-top border-2 border-secondary mb-2"></div>
-                            <p><span>Die Hausaufgabe: </span> <span style={{ fontWeight: "700" }}>{aufgabe.aufgabe}</span> muss in <span style={{ fontWeight: "700" }}>{aufgabe.fach}</span> für morgen gemacht werden!</p>
+                            <p><span>Die Hausaufgabe: </span> <span className='span_hausaufgaben'>{aufgabe.aufgabe}</span> muss in <span className='span_hausaufgaben'>{aufgabe.fach}</span> für morgen gemacht werden!</p>
                         </div>
                     ))
                 ) : (

@@ -23,7 +23,7 @@ export default function Mitteilungen() {
     };
 
     useEffect(() => {
-        //fetchWetter();
+        fetchWetter();
     }, []);
 
     return (
@@ -35,7 +35,7 @@ export default function Mitteilungen() {
                 {loading ? (
                     <>
                         <p>Laden...</p>
-                        <div style={{display:"none"}}>
+                        <div className='wetter_button'>
                             <Button onClick={fetchWetter} variant='secondary'>Aktualisiern</Button>                    
                         </div>
                     </>
