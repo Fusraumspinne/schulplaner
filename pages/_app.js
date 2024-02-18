@@ -1,28 +1,11 @@
 import Layout from "@/komponenten/Layout";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "@/styles/index.css";
-import { useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css" 
+import "@/styles/index.css"
 
 export default function App({ Component, pageProps }) {
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0) {
-        document.body.style.overflowY = "hidden";
-      } else {
-        document.body.style.overflowY = "auto";
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  return (
+  return(
     <Layout>
-      <Component {...pageProps} />
+      <Component	{...pageProps}/>
     </Layout>
-  );
+  )
 }
