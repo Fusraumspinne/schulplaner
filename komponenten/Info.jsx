@@ -39,19 +39,19 @@ export default function Info() {
                             Geburtstage welche man eintragen kann und man dran erinnert wird.
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="4">
+                    <Accordion.Item eventKey="5">
                         <Accordion.Header>Dynamisch</Accordion.Header>
                         <Accordion.Body>
                             Später wird man alles selber konfiguieren können.
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="5">
+                    <Accordion.Item eventKey="6">
                         <Accordion.Header>Taschenrechner</Accordion.Header>
                         <Accordion.Body>
                             Eingebauter Taschenrechner auf die Startseite.
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="6">
+                    <Accordion.Item eventKey="7">
                         <Accordion.Header>Anstehende KA und Events</Accordion.Header>
                         <Accordion.Body>
                             Mitteilungen wenn KA und Events.
