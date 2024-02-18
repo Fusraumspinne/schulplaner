@@ -26,7 +26,7 @@ export default function Taschenrechner() {
     };
 
     return (
-        <Card bg='dark' text='white' className='mx-1 mt-3'>
+        <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
             <Card.Title className='d-flex justify-content-center mt-2 fs-2'>
                 Taschenrechner
             </Card.Title>

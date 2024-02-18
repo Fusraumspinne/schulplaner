@@ -46,12 +46,6 @@ export default function Info() {
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="6">
-                        <Accordion.Header>Taschenrechner</Accordion.Header>
-                        <Accordion.Body>
-                            Eingebauter Taschenrechner auf die Startseite.
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="7">
                         <Accordion.Header>Anstehende KA und Events</Accordion.Header>
                         <Accordion.Body>
                             Mitteilungen wenn KA und Events.
