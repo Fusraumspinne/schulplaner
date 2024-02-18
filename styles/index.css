@@ -20,3 +20,9 @@
 .wetter_button{
     display: none;
 }
+
+.textarea_notizen{
+    width: 100%;
+    resize: none;
+    overflow-y: auto;
+}

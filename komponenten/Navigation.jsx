@@ -16,7 +16,7 @@ export default function Navigation() {
                     <Nav className="me-auto">
                         <Nav.Link href="/">Startseite</Nav.Link>
                         <Nav.Link href="/hausaufgaben/">Hausaufgaben</Nav.Link>
-                        <Nav.Link href="/">Notizen(nicht verfügbar)</Nav.Link>
+                        <Nav.Link href="/notitzen/">Notizen</Nav.Link>
                         <Nav.Link href="/">Noten/Zeugnis(nicht verfügbar)</Nav.Link>
                     </Nav>
                     <Nav>

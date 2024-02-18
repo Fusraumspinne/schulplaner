@@ -2,7 +2,7 @@ import { Card, Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import axios from "axios";
 
-export default function Mitteilungen() {
+export default function Wetter() {
     const [stadt, setStadt] = useState("");
     const [wetter, setWetter] = useState({});
     const [loading, setLoading] = useState(true);
