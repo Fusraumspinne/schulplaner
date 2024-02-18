@@ -7,8 +7,8 @@ import Taschenrechner from "@/komponenten/Taschenrechner"
 export default function Startseite() {
 
     return (
-        <div className="container-fluid">
-            <div className='row mt-4'>
+        <div className="container-fluid mb-5">
+            <div className='row'>
                 <div className="col-9 container_start">
                     <Stundenplan/>
                     <div className="row">
