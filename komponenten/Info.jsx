@@ -39,6 +39,12 @@ export default function Mitteilungen() {
                             Geburtstage welche man eintragen kann und man dran erinnert wird.
                         </Accordion.Body>
                     </Accordion.Item>
+                    <Accordion.Item eventKey="4">
+                        <Accordion.Header>Dynamisch</Accordion.Header>
+                        <Accordion.Body>
+                            Später wird man alles selber konfiguieren können.
+                        </Accordion.Body>
+                    </Accordion.Item>
                 </Accordion>
             </Card.Body>
         </Card>
