@@ -18,7 +18,7 @@ export default function Info() {
                     <Accordion.Item eventKey="1">
                         <Accordion.Header>Notizen</Accordion.Header>
                         <Accordion.Body>
-                            Notizen welche gespeichert werden, um Idenn oder andere wichtige Sachen festzuhalten.
+                            Verschiedene Settings für Notizen.
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="2">
