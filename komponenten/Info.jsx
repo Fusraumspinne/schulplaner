@@ -51,6 +51,12 @@ export default function Info() {
                             Mitteilungen wenn KA und Events.
                         </Accordion.Body>
                     </Accordion.Item>
+                    <Accordion.Item eventKey="7">
+                        <Accordion.Header>Personalisierung</Accordion.Header>
+                        <Accordion.Body>
+                            Auswahl von Widgets die man haben möchte.
+                        </Accordion.Body>
+                    </Accordion.Item>
                 </Accordion>
             </Card.Body>
         </Card>
