@@ -7,10 +7,8 @@ export default function Notizen() {
 
     useEffect(() => {
         const storedNotizen = localStorage.getItem('notizen');
-        if (storedNotizen) {
-            setNotizen(JSON.parse(storedNotizen));
-            setGeladen(true)
-        }
+        setNotizen(JSON.parse(storedNotizen));
+        setGeladen(true)
     }, []);
 
     useEffect(() => {
