@@ -16,42 +16,48 @@ export default function Info() {
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1">
+                        <Accordion.Header>Wie werden Ihre Daten gespeichert?</Accordion.Header>
+                        <Accordion.Body>
+                            Jeder Browser besitzt einen lokalen Speicher, welcher Ihre Daten beinhaltet, welche man selber einsehen und bearbeiten kann. Zusammengefasst hbe ich also keinen Zugriff auf jegliche Daten, da keine Datenbank zwischengeschaltet ist.
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="2">
                         <Accordion.Header>Notizen</Accordion.Header>
                         <Accordion.Body>
                             Verschiedene Settings für Notizen.
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="2">
+                    <Accordion.Item eventKey="3">
                         <Accordion.Header>Noten/Zeugnis</Accordion.Header>
                         <Accordion.Body>
                             Dieser Tab soll deine Noten im Blick behalten und eine Art Analyse für einen Durchführen.
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="3">
+                    <Accordion.Item eventKey="4">
                         <Accordion.Header>Online-Whiteboard in Echtzeit</Accordion.Header>
                         <Accordion.Body>
                             Ein Online-Whiteboard um Spiele zuspieln oder Ideen auszutauschen. 
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="4">
+                    <Accordion.Item eventKey="5">
                         <Accordion.Header>Geburtstage</Accordion.Header>
                         <Accordion.Body>
                             Geburtstage welche man eintragen kann und man dran erinnert wird.
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="5">
+                    <Accordion.Item eventKey="6">
                         <Accordion.Header>Dynamisch</Accordion.Header>
                         <Accordion.Body>
                             Später wird man alles selber konfiguieren können.
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="6">
+                    <Accordion.Item eventKey="7">
                         <Accordion.Header>Anstehende KA und Events</Accordion.Header>
                         <Accordion.Body>
                             Mitteilungen wenn KA und Events.
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="7">
+                    <Accordion.Item eventKey="8">
                         <Accordion.Header>Personalisierung</Accordion.Header>
                         <Accordion.Body>
                             Auswahl von Widgets die man haben möchte.
