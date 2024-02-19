@@ -12,16 +12,14 @@ export default function Notizen() {
 
     useEffect(() => {
         const savedSettings = JSON.parse(localStorage.getItem('settings'));
-        if (savedSettings && typeof savedSettings === 'object') {
-            setShowStundenplan(savedSettings.stundenplan || false);
-            setShowTaschenrechner(savedSettings.rechner || false);
-            setShowMitteilungen(savedSettings.mitteilungen || false);
-            setShowWetter(savedSettings.wetter || false);
-            setShowInfo(savedSettings.informationen || false);
-        }
+        setStundenplan(savedSettings.stundenplan);
+        setRechner(savedSettings.rechner);
+        setMitteilungen(savedSettings.mitteilungen);
+        setWetter(savedSettings.wetter);
+        setInformationen(savedSettings.informationen);
         setGeladen(true)
-    }, []);    
-    
+    }, []);
+
     useEffect(() => {
         if(geladen){
             const newSettings = {
