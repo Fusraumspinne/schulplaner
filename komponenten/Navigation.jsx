@@ -28,6 +28,7 @@ export default function Navigation() {
                             <NavDropdown.Item href="https://flopperchatapp69.000webhostapp.com/login.php" target="_blank">ChatApp(online)</NavDropdown.Item>
                             <NavDropdown.Item href="https://github.com/Fusraumspinne/" target="_blank">GitHub</NavDropdown.Item>
                         </NavDropdown>
+                        <Nav.Link href="/einstellungen/">Einstellungen</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

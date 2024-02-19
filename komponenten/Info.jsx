@@ -18,7 +18,7 @@ export default function Info() {
                     <Accordion.Item eventKey="1">
                         <Accordion.Header>Wie werden Ihre Daten gespeichert?</Accordion.Header>
                         <Accordion.Body>
-                            Jeder Browser besitzt einen lokalen Speicher, welcher Ihre Daten beinhaltet, welche man selber einsehen und bearbeiten kann. Zusammengefasst hbe ich also keinen Zugriff auf jegliche Daten, da keine Datenbank zwischengeschaltet ist.
+                            Jeder Browser besitzt einen lokalen Speicher, welcher Ihre Daten beinhaltet, welche man selber einsehen und bearbeiten kann. Zusammengefasst habe ich also keinen Zugriff auf jegliche Daten, da keine Datenbank zwischengeschaltet ist.
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="2">
@@ -61,6 +61,12 @@ export default function Info() {
                         <Accordion.Header>Personalisierung</Accordion.Header>
                         <Accordion.Body>
                             Auswahl von Widgets die man haben möchte.
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="9">
+                        <Accordion.Header>Mini-Spiele</Accordion.Header>
+                        <Accordion.Body>
+                            Kleine von mir ausgedachte Mini-Spiele.
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
