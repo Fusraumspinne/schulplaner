@@ -58,12 +58,6 @@ export default function Info() {
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="8">
-                        <Accordion.Header>Personalisierung</Accordion.Header>
-                        <Accordion.Body>
-                            Auswahl von Widgets die man haben möchte.
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="9">
                         <Accordion.Header>Mini-Spiele</Accordion.Header>
                         <Accordion.Body>
                             Kleine von mir ausgedachte Mini-Spiele.
