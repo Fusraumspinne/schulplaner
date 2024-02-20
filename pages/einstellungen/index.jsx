@@ -1,6 +1,5 @@
 import { Button, Card, InputGroup } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import mitt from 'next/dist/shared/lib/mitt';
 
 export default function Notizen() {
     const [stundenplan, setStundenplan] = useState(true)
