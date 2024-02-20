@@ -60,7 +60,7 @@ export default function Info() {
                     <Accordion.Item eventKey="8">
                         <Accordion.Header>Mini-Spiele</Accordion.Header>
                         <Accordion.Body>
-                            Kleine von mir ausgedachte Mini-Spiele.
+                            Kleine von mir ausgedachte Mini-Spiele. Mit einer virtuellen Währungen, was den Reiz zum Benutzen der Website anregt.
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
