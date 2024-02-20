@@ -18,6 +18,7 @@ export default function Navigation() {
                         <Nav.Link href="/hausaufgaben/">Hausaufgaben</Nav.Link>
                         <Nav.Link href="/notitzen/">Notizen</Nav.Link>
                         <Nav.Link href="/">Noten/Zeugnis(nicht verfügbar)</Nav.Link>
+                        <Nav.Link href="/planerfarm/">Planerfarm</Nav.Link>
                     </Nav>
                     <Nav>
                         <NavDropdown title="weitere Links" id="basic-nav-dropdown" bg="primary">
