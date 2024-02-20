@@ -17,7 +17,7 @@ export default function Notizen() {
     
         if (currentTime > lastTimeDate || !lastTime) {
             setStreak(streak + 1);
-            setCoins(coins + (streak * 1000));
+            setCoins(coins + (streak * 1000 * 0.2));
             setLastTime(() => new Date());
         } else {
             console.log("Es ist noch kein Tag vergangen.");
@@ -78,7 +78,7 @@ export default function Notizen() {
                                 <div className='d-flex align-items-center'>
                                     <Button onClick={claim} variant='secondary'>Claim</Button>
                                     <p className='my-0 mx-3 fs-5'>Deine Streak: {streak}</p>
-                                    <p className='my-0 mx-3 fs-5'>Deine Belohnung: {streak * belohnung}</p>
+                                    <p className='my-0 mx-3 fs-5'>Deine Belohnung: {streak * belohnung * 0.2}</p>
                                 </div>
                             ) : (
                                 <div className='d-flex align-items-center'>
@@ -93,7 +93,7 @@ export default function Notizen() {
                             <div className="border-top border-2 border-secondary mb-2"></div>
                             <div className='d-flex justify-content-between align-items-center'>
                                 <p className='my-0 mx-3 fs-5'>Daily-Bonus Upgrade</p>
-                                <Button onClick={claim} variant='secondary'>Claim</Button>
+                                <Button variant='secondary'>Upgrade</Button>
                             </div>
                         </div>
                     </div>
