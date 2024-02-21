@@ -64,7 +64,7 @@ export default function Notizen() {
         <div className='container-fluid'>
             <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
                 <Card.Title className='d-flex justify-content-between mx-3 mt-2 fs-2'>
-                    <p>Planerfarm</p>
+                    <p>Planerfarmer</p>
                     <p>Coins: {coins}</p>
                 </Card.Title>
                 <Card.Body className='row'> 
