@@ -1,7 +1,8 @@
 import { Button, Card, InputGroup } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import Blackjack from "@/komponenten/Blackjack"
 
-export default function Notizen() {
+export default function Planerfarmer() {
     const [coins, setCoins] = useState(0)
     const [streak, setStreak] = useState(1)
     const [belohnung, setBelohnung] = useState(1000)
@@ -104,6 +105,7 @@ export default function Notizen() {
                     </div>
                 </Card.Body>
             </Card>
+                    <Blackjack/>
         </div>
     );
 }
