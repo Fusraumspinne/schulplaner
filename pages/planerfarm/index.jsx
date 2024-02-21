@@ -37,7 +37,7 @@ export default function Notizen() {
     }, []);
 
     useEffect(() => {
-        if(geladen){
+        if (geladen) {
             const newPlanerfarmer = {
                 coins: coins,
                 streak: streak,
@@ -46,19 +46,24 @@ export default function Notizen() {
             };
             localStorage.setItem('planerfarmer', JSON.stringify(newPlanerfarmer));
         }
-
+    
         const currentTime = new Date();
-        currentTime.setHours(0, 0, 0, 0); 
+        currentTime.setHours(0, 0, 0, 0);
         const lastTimeDate = new Date(lastTime);
-        lastTimeDate.setHours(0, 0, 0, 0); 
-
+        lastTimeDate.setHours(0, 0, 0, 0);
+    
+        const diffTime = Math.abs(currentTime - lastTimeDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
         if (currentTime > lastTimeDate || !lastTime) {
-            setReady(true)
-        }else{
-            setReady(false)
+            setReady(true);
+            if (diffDays >= 2) {
+                setStreak(1); 
+            }
+        } else {
+            setReady(false);
         }
     });
-
 
     return (
         <div className='container-fluid'>
