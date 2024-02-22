@@ -230,7 +230,8 @@ export default function Blackjack() {
                     <div>
                         <InputGroup>
                             <Form.Control 
-                                max={coins} 
+                                max={coins}
+                                min={0}
                                 type='number' 
                                 placeholder='Betrag' 
                                 onChange={(e) => setWetteinsatz(e.target.value)} 
