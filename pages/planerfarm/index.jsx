@@ -39,6 +39,14 @@ export default function Planerfarmer() {
 
     useEffect(() => {
         if (geladen) {
+            const savedPlanerfarmer = JSON.parse(localStorage.getItem('planerfarmer'));
+            let savedCoins = coins
+            if(savedPlanerfarmer){
+                setCoins(savedPlanerfarmer.coins);
+                savedCoins - coins
+                setCoins(coins - savedCoins)
+            }
+            
             const newPlanerfarmer = {
                 coins: coins,
                 streak: streak,
