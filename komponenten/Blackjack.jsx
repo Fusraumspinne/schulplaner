@@ -8,7 +8,7 @@ export default function Blackjack() {
     const [belohnung, setBelohnung] = useState(0)
     const [lastTime, setLastTime] = useState()
     const [geladen, setGeladen] = useState(false);
-    const [wetteinsatz, setWetteinsatz] = useState(0)
+    const [wetteinsatz, setWetteinsatz] = useState(1)
     const [spielen, setSpielen] = useState(false)
     const [deck, setDeck] = useState([]);
     const [dealerCards, setDealerCards] = useState([]);
@@ -231,7 +231,7 @@ export default function Blackjack() {
                         <InputGroup>
                             <Form.Control 
                                 max={coins}
-                                min={0}
+                                min={1}
                                 type='number' 
                                 placeholder='Betrag' 
                                 onChange={(e) => setWetteinsatz(e.target.value)} 
