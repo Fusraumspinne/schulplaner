@@ -228,9 +228,16 @@ export default function Blackjack() {
                     </>
                 ) : (
                     <div>
-                        <InputGroup>
-                            <input max={coins} min={0} type='number' placeholder='Betrag' onChange={(e) => setWetteinsatz(e.target.value)} >{wetteinsatz}</input>
-                        </InputGroup>
+                          <InputGroup>
+                             <Form.Control 
+                                 max={coins}
+                                 min={1}
+                                 type='number' 
+                                 placeholder='Betrag' 
+                                 onChange={(e) => setWetteinsatz(e.target.value)} 
+                                 value={wetteinsatz}
+                             />
+                         </InputGroup>
                         {wetteinsatz > coins || wetteinsatz === 0 ? ( 
                             <Button className='mt-3' variant='secondary' disabled> // Button deaktivieren, wenn der Wetteinsatz zu hoch ist oder 0 beträgt
                                 {wetteinsatz > coins ? 'Wetteinsatz zu hoch' : 'Wetteinsatz eingeben'}
