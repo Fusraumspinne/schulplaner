@@ -2,30 +2,7 @@ import { Button, Card, Form, FormControl, InputGroup } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-// Define card values and types
-const VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-const TYPES = ["C", "D", "H", "S"];
-
-// Function to build the deck
-const buildDeck = () => {
-    const deck = [];
-    for (let type of TYPES) {
-        for (let value of VALUES) {
-            deck.push(`${value}-${type}`);
-        }
-    }
-    return deck;
-};
-
-// Function to shuffle the deck
-const shuffleDeck = (deck) => {
-    for (let i = deck.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [deck[i], deck[j]] = [deck[j], deck[i]];
-    }
-};
-
-const Blackjack = () => {
+export default function Blackjack() {
     let [coins, setCoins] = useState(0);
     const [streak, setStreak] = useState(0)
     const [belohnung, setBelohnung] = useState(0)
@@ -44,6 +21,25 @@ const Blackjack = () => {
     const [canHit, setCanHit] = useState(true);
     const [gameOver, setGameOver] = useState(false);
     const [message, setMessage] = useState('');
+
+    const buildDeck = () => {
+        const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+        const types = ["C", "D", "H", "S"];
+        const deck = [];
+        for (let type of types) {
+            for (let value of values) {
+                deck.push(`${value}-${type}`);
+            }
+        }
+        return deck;
+    };
+
+    const shuffleDeck = (deck) => {
+        for (let i = deck.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+    };
 
     useEffect(() => {
         const savedPlanerfarmer = JSON.parse(localStorage.getItem('planerfarmer'));
@@ -89,7 +85,6 @@ const Blackjack = () => {
         dealerAceCount += checkAce(hidden);
         setHidden(hidden);
 
-        // Deal cards to dealer
         while (dealerSum < 17) {
             let card = deck.pop();
             dealerSum += getValue(card);
@@ -97,7 +92,6 @@ const Blackjack = () => {
             newDealerCards.push(card);
         }
 
-        // Deal cards to player
         for (let i = 0; i < 2; i++) {
             let card = deck.pop();
             yourSum += getValue(card);
@@ -127,7 +121,6 @@ const Blackjack = () => {
         let newYourSum = yourSum + cardValue;
         let newYourAceCount = yourAceCount + checkAce(card);
 
-        // Reduce ace value if necessary
         while (newYourSum > 21 && newYourAceCount > 0) {
             newYourSum -= 10;
             newYourAceCount--;
@@ -148,7 +141,6 @@ const Blackjack = () => {
         setCanHit(false);
         setGameOver(true);
 
-        // Dealer's turn
         let newDealerSum = dealerSum;
         let newDealerAceCount = dealerAceCount;
         let hiddenCardValue = getValue(hidden);
@@ -159,13 +151,11 @@ const Blackjack = () => {
             newDealerAceCount += checkAce(card);
         }
 
-        // Reduce ace value if necessary
         while (newDealerSum > 21 && newDealerAceCount > 0) {
             newDealerSum -= 10;
             newDealerAceCount--;
         }
 
-        // Determine winner
         if (yourSum > 21 || (newDealerSum <= 21 && newDealerSum > yourSum)) {
             setMessage('Du hast verloren!');
             setCoins(coins - wetteinsatz)
@@ -260,5 +250,3 @@ const Blackjack = () => {
         </Card>
     );
 };
-
-export default Blackjack;
