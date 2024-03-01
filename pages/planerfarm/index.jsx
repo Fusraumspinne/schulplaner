@@ -18,32 +18,28 @@ export default function Planerfarmer() {
     
         if (currentTime > lastTimeDate || !lastTime) {
             setStreak(streak + 1);
-            setCoins(coins + (streak * 1000 * 0.2));
+            setCoins(coins + streak * 1000 * 0.2);
             setLastTime(() => new Date());
-        } else {
-            console.log("Es ist noch kein Tag vergangen.");
-            //maybe Toast!!!!!!!!
         }
     };
 
     useEffect(() => {
-        const savedPlanerfarmer = JSON.parse(localStorage.getItem('planerfarmer'));
-        if(savedPlanerfarmer){
-            setCoins(savedPlanerfarmer.coins);
-            setStreak(savedPlanerfarmer.streak);
-            setBelohnung(savedPlanerfarmer.belohnung);
-            setLastTime(savedPlanerfarmer.lastTime)
-        }
-        setGeladen(true)
+        const interval = setInterval(() => {
+            const savedPlanerfarmer = JSON.parse(localStorage.getItem('planerfarmer'));
+            if(savedPlanerfarmer){
+                setCoins(savedPlanerfarmer.coins);
+                setStreak(savedPlanerfarmer.streak);
+                setBelohnung(savedPlanerfarmer.belohnung);
+                setLastTime(savedPlanerfarmer.lastTime)
+            }
+            setGeladen(true)
+        }, 250); 
+
+        return () => clearInterval(interval);
     }, []);
 
     useEffect(() => {
         if (geladen) {
-            const savedPlanerfarmer = JSON.parse(localStorage.getItem('planerfarmer'));
-            if(savedPlanerfarmer){
-                setCoins(savedPlanerfarmer.coins);
-            }
-            
             const newPlanerfarmer = {
                 coins: coins,
                 streak: streak,
@@ -102,15 +98,15 @@ export default function Planerfarmer() {
                                 <p className='fs-4'>Upgrades/PowerUps</p>
                             </div>
                             <div className="border-top border-2 border-secondary mb-2"></div>
-                            <div className='d-flex justify-content-between align-items-center'>
+                            {/*<div className='d-flex justify-content-between align-items-center'>
                                 <p className='my-0 mx-3 fs-5'>Daily-Bonus Upgrade</p>
                                 <Button variant='secondary'>Upgrade</Button>
-                            </div>
+                            </div>*/}
                         </div>
                     </div>
                 </Card.Body>
             </Card>
-                    <Blackjack/>
+            <Blackjack/>
         </div>
     );
 }

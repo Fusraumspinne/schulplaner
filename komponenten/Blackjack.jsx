@@ -107,6 +107,29 @@ export default function Blackjack() {
         setYourAceCount(yourAceCount);
     };
 
+    const resetGame = () => {
+        setSpielen(false);
+        setYourCards([]);
+        setDealerCards([]);
+        setYourSum(0);
+        setDealerSum(0);
+        setYourAceCount(0);
+        setDealerAceCount(0);
+        setCanHit(true);
+        setGameOver(false);
+        setMessage('');
+    
+        if (deck.length < 15) {
+            const newDeck = buildDeck();
+            shuffleDeck(newDeck);
+            setDeck(newDeck); 
+        }
+    
+        startGame(deck);
+        console.log(deck)
+    };
+    
+
     const hit = () => {
         if (!canHit || gameOver) {
             return;
@@ -223,10 +246,15 @@ export default function Blackjack() {
                             <Button variant='secondary' className='mx-3' onClick={hit}>Hit</Button>
                             <Button variant='secondary' className='mx-3' onClick={stay}>Stay</Button>  
                             <p className='my-0 mx-3 fs-5' id='results'>{gameOver ? `Ergebnis: ${message}` : ''}</p>
-                            <p className='my-0 mx-3 fs-5'>{gameOver ? `Bitte laden sie dei Seite neu!` : ''}</p>
+                            {gameOver ? (
+                                <Button variant='secondary' onClick={resetGame}>Nocheinmal spielen</Button>
+                            ) : (
+                                <Button style={{display:"none"}} variant='secondary' onClick={resetGame}>Nocheinmal spielen</Button>
+                            )}
+                           
                         </div>
                     </>
-                ) : (
+                ) : (  
                     <div>
                           <InputGroup>
                              <Form.Control 
