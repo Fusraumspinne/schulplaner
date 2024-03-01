@@ -4,6 +4,7 @@ import Wetter from "@/komponenten/Wetter"
 import Info from "@/komponenten/Info"
 import Taschenrechner from "@/komponenten/Taschenrechner"
 import { useState, useEffect } from 'react';
+import Planerfarmerübersicht from "@/komponenten/Planerfarmerübersicht"
 
 export default function Startseite() {
     const [showStundenplan, setShowStundenplan] = useState(true);
@@ -11,6 +12,7 @@ export default function Startseite() {
     const [showMitteilungen, setShowMitteilungen] = useState(true);
     const [showWetter, setShowWetter] = useState(true);
     const [showInfo, setShowInfo] = useState(true);
+    const [showPlanerfarmerübersicht, setshowPlanerfarmerübersicht] = useState(true);
 
     useEffect(() => {
         const savedSettings = JSON.parse(localStorage.getItem('settings'));
@@ -20,6 +22,7 @@ export default function Startseite() {
             setShowMitteilungen(savedSettings.mitteilungen || false);
             setShowWetter(savedSettings.wetter || false);
             setShowInfo(savedSettings.informationen || false);
+            setshowPlanerfarmerübersicht(savedSettings.planerfarmerübersicht || false)
         }
     }, []);
     
@@ -37,6 +40,7 @@ export default function Startseite() {
                             
                         </div>
                     </div>
+                    {showPlanerfarmerübersicht && <Planerfarmerübersicht/>}
                 </div>
                 <div className="col-3 container_start pb-5">
                     {showMitteilungen && <Mitteilungen/>}

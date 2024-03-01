@@ -7,6 +7,7 @@ export default function Notizen() {
     const [mitteilungen, setMitteilungen] = useState(true)
     const [wetter, setWetter] = useState(true)
     const [informationen, setInformationen] = useState(true)
+    const [planerfarmerübersicht, setPlanerfarmerübersicht] = useState(true)
     const [geladen, setGeladen] = useState(false)
 
     useEffect(() => {
@@ -17,6 +18,7 @@ export default function Notizen() {
             setMitteilungen(savedSettings.mitteilungen);
             setWetter(savedSettings.wetter);
             setInformationen(savedSettings.informationen);
+            setPlanerfarmerübersicht(savedSettings.planerfarmerübersicht)
         }
         setGeladen(true)
     }, []);
@@ -28,11 +30,12 @@ export default function Notizen() {
                 rechner: rechner,
                 mitteilungen: mitteilungen,
                 wetter: wetter,
-                informationen: informationen
+                informationen: informationen,
+                planerfarmerübersicht: planerfarmerübersicht
             };
             localStorage.setItem('settings', JSON.stringify(newSettings));
         }
-    }, [stundenplan, rechner, mitteilungen, wetter, informationen]);
+    }, [stundenplan, rechner, mitteilungen, wetter, informationen, planerfarmerübersicht]);
 
 
     return (
@@ -83,6 +86,10 @@ export default function Notizen() {
                             <div className='d-flex justify-content-between align-items-center'>
                                 <p className='fs-5'>Informationen</p>
                                 <InputGroup.Checkbox checked={informationen} onChange={() => {setInformationen(!informationen)}} className='mb-1'></InputGroup.Checkbox>
+                            </div>
+                            <div className='d-flex justify-content-between align-items-center'>
+                                <p className='fs-5'>Planerfarmerübersicht</p>
+                                <InputGroup.Checkbox checked={planerfarmerübersicht} onChange={() => {setPlanerfarmerübersicht(!planerfarmerübersicht)}} className='mb-1'></InputGroup.Checkbox>
                             </div>
                         </div>
                     </div>
