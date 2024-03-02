@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 export default function Blackjack() {
-    let [coins, setCoins] = useState(0);
+    const [coins, setCoins] = useState(0);
     const [streak, setStreak] = useState(1)
     const [belohnung, setBelohnung] = useState(0)
     const [lastTime, setLastTime] = useState()
