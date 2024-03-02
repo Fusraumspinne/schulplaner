@@ -4,10 +4,9 @@ import Image from 'next/image';
 
 export default function Blackjack() {
     let [coins, setCoins] = useState(0);
-    const [streak, setStreak] = useState(0)
+    const [streak, setStreak] = useState(1)
     const [belohnung, setBelohnung] = useState(0)
     const [lastTime, setLastTime] = useState()
-    const [geladen, setGeladen] = useState(false);
     const [wetteinsatz, setWetteinsatz] = useState(1)
     const [spielen, setSpielen] = useState(false)
     const [deck, setDeck] = useState([]);
@@ -42,6 +41,14 @@ export default function Blackjack() {
     };
 
     useEffect(() => {
+        const newDeck = buildDeck();
+        shuffleDeck(newDeck);
+        setDeck(newDeck);
+        
+        startGame(newDeck);
+    }, []);
+
+    useEffect(() => {
         const savedPlanerfarmer = JSON.parse(localStorage.getItem('planerfarmer'));
         if(savedPlanerfarmer){
             setCoins(savedPlanerfarmer.coins);
@@ -49,27 +56,7 @@ export default function Blackjack() {
             setBelohnung(savedPlanerfarmer.belohnung);
             setLastTime(savedPlanerfarmer.lastTime)
         }
-        setGeladen(true)
-
-        const newDeck = buildDeck();
-        shuffleDeck(newDeck);
-        setDeck(newDeck);
-
-        startGame(newDeck);
-    }, []);
-
-    useEffect(() => {
-        if (geladen) {
-            const newPlanerfarmer = {
-                coins: coins,
-                streak: streak,
-                belohnung: belohnung,
-                lastTime: lastTime
-            };
-            localStorage.setItem('planerfarmer', JSON.stringify(newPlanerfarmer));
-            console.log(coins)
-        }
-    });
+    })
 
     const startGame = (deck) => {
         const newDealerCards = [];
@@ -156,7 +143,15 @@ export default function Blackjack() {
             setCanHit(false);
             setGameOver(true);
             setMessage('Du hast verloren!');
-            setCoins(coins - wetteinsatz)
+            
+            const newPlanerfarmer = {
+                coins: parseInt(coins) - parseInt(wetteinsatz), 
+                streak: streak,
+                belohnung: belohnung,
+                lastTime: lastTime
+            }; 
+
+            localStorage.setItem('planerfarmer', JSON.stringify(newPlanerfarmer)); 
         }
     };
 
@@ -181,10 +176,24 @@ export default function Blackjack() {
 
         if (yourSum > 21 || (newDealerSum <= 21 && newDealerSum > yourSum)) {
             setMessage('Du hast verloren!');
-            setCoins(coins - wetteinsatz)
+            const newPlanerfarmer = {
+                coins: parseInt(coins) - parseInt(wetteinsatz), 
+                streak: streak,
+                belohnung: belohnung,
+                lastTime: lastTime
+            }; 
+
+            localStorage.setItem('planerfarmer', JSON.stringify(newPlanerfarmer)); 
         } else if (newDealerSum > 21 || newDealerSum < yourSum) {
             setMessage('Du hast gewonnen!');
-            setCoins(parseInt(coins) + parseInt(wetteinsatz)); 
+            const newPlanerfarmer = {
+                coins: parseInt(coins) + parseInt(wetteinsatz), 
+                streak: streak,
+                belohnung: belohnung,
+                lastTime: lastTime
+            }; 
+
+            localStorage.setItem('planerfarmer', JSON.stringify(newPlanerfarmer)); 
         } else {
             setMessage('Unentschiden!');
         }
@@ -267,9 +276,7 @@ export default function Blackjack() {
                              />
                          </InputGroup>
                         {wetteinsatz > coins || wetteinsatz === 0 ? ( 
-                            <Button className='mt-3' variant='secondary' disabled> // Button deaktivieren, wenn der Wetteinsatz zu hoch ist oder 0 beträgt
-                                {wetteinsatz > coins ? 'Wetteinsatz zu hoch' : 'Wetteinsatz eingeben'}
-                            </Button>
+                            <Button className='mt-3' variant='secondary' disabled> // Button deaktivieren, wenn der Wetteinsatz zu hoch ist oder 0 beträgt</Button>
                         ) : (
                             <Button className='mt-3' variant='secondary' onClick={() => setSpielen(true)}>Spielen</Button>
                         )}
