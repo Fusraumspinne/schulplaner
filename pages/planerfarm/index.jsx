@@ -76,7 +76,6 @@ export default function Planerfarmer() {
 
     return (
         <div className='container-fluid'>
-            <ToastContainer/>
             <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
                 <Card.Title className='d-flex justify-content-between mx-3 mt-2 fs-2'>
                     <p>Planerfarmer</p>
