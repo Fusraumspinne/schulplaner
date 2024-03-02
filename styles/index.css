@@ -51,6 +51,22 @@
     font-size: 20px;
     margin: 10px;
     color: white;
+} 
+
+#container_respoinsive{
+    display: none;
+}
+
+#container_normal{
+    display: block;
+}
+
+#settings_responsive{
+    display: none;
+}
+
+#settings_normal{
+    display: block;
 }
 
 @media screen  and (max-width: 1150px){
@@ -93,43 +109,20 @@
     }
 }
 
-@media screen  and (max-width: 700px){
-    .rechner{
-        padding: 13px;
-        border-radius: 6.5px;
-    }
-    
-    .taschenrechner_btn{
-        width: 25px;
-        height: 25px;
-        font-size: 11px;
-        margin: 4px;
-        padding: 1px;
-        color: white;
-    }
-    
-    .taschenrechner_output{
-        text-align: right;
-        flex: 1;
-        font-size: 20px;
-    }
-    
-    .result_btn{
-        width: 60px;
-        height: 25px;
-        font-size: 11px;
-        margin: 4px;
-        padding: 1;
-        color: white;
-    }
-    
-    .taschenrechner_output{
-        width: 100%;
-        height: 23px;
-        font-size: 10px;
+@media screen and (max-width: 900px){
+    #container_respoinsive{
+        display: block;
     }
 
-    .container_output{
-        width: 128px;
+    #container_normal{
+        display: none;
+    }
+
+    #settings_responsive{
+        display: block;
+    }
+
+    #settings_normal{
+        display: none;
     }
 }

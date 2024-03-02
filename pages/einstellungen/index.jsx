@@ -134,63 +134,108 @@ export default function Notizen() {
     }
 
     return (
-        <div className='container-fluid'>
-            <ToastContainer/>
-            <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
-                <Card.Title className='d-flex ms-3 mt-2 fs-2'>
-                    Einstellungen
-                </Card.Title>
-                <Card.Body className='row'> 
-                    <div className='col-4'>
-                        <div className='d-flex justify-content-center'>
-                            <p className='fs-3'>Settings</p>
+        <>
+            <div className='container-fluid' id='settings_normal'>
+                <ToastContainer/>
+                <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
+                    <Card.Title className='d-flex ms-3 mt-2 fs-2'>
+                        Einstellungen
+                    </Card.Title>
+                    <Card.Body className='row'> 
+                        <div className='col-6'>
+                            <div className='d-flex justify-content-center'>
+                                <p className='fs-3'>Settings</p>
+                            </div>
+                            <div>
+                                <div className="border-top border-2 border-secondary mb-2"></div>
+                            </div>
+                        </div>
+                        <div className='col-6'>
+                            <div className='d-flex justify-content-center'>
+                                <p className='fs-3'>Widgets</p>
+                            </div>
+                            <div>
+                                <div className="border-top border-2 border-secondary mb-2"></div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Stundenplan</p>
+                                    <InputGroup.Checkbox className='mb-1' checked={stundenplan} onChange={() => {toogle("stundenplan", !stundenplan)}}></InputGroup.Checkbox>
+                                </div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Rechner/Schnellnotizen</p>
+                                    <InputGroup.Checkbox checked={rechner} onChange={() => {toogle("rechner",!rechner)}} className='mb-1'></InputGroup.Checkbox>
+                                </div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Mitteilungen</p>
+                                    <InputGroup.Checkbox checked={mitteilungen} onChange={() => {toogle("mitteilung",!mitteilungen)}} className='mb-1'></InputGroup.Checkbox>
+                                </div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Wetter</p>
+                                    <InputGroup.Checkbox checked={wetter} onChange={() => {toogle("wetter",!wetter)}} className='mb-1'></InputGroup.Checkbox>
+                                </div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Informationen</p>
+                                    <InputGroup.Checkbox checked={informationen} onChange={() => {toogle("informationen",!informationen)}} className='mb-1'></InputGroup.Checkbox>
+                                </div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Planerfarmerübersicht</p>
+                                    <InputGroup.Checkbox checked={planerfarmerübersicht} onChange={() => {toogle("planerfarmerübersicht",!planerfarmerübersicht)}} className='mb-1'></InputGroup.Checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </Card.Body>
+                </Card>
+            </div>
+
+            <div className='container-fluid' id='settings_responsive'>
+                <ToastContainer/>
+                <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
+                    <Card.Title className='d-flex ms-3 mt-2 fs-2'>
+                        Einstellungen
+                    </Card.Title>
+                    <Card.Body> 
+                        <div>
+                            <div className='d-flex justify-content-center'>
+                                <p className='fs-3'>Settings</p>
+                            </div>
+                            <div>
+                                <div className="border-top border-2 border-secondary mb-2"></div>
+                            </div>
                         </div>
                         <div>
-                            <div className="border-top border-2 border-secondary mb-2"></div>
-                        </div>
-                    </div>
-                    <div className='col-4'>
-                        <div className='d-flex justify-content-center'>
-                            <p className='fs-3'>Idk noch was</p>
-                        </div>
-                        <div>
-                            <div className="border-top border-2 border-secondary mb-2"></div>
-                        </div>
-                    </div>
-                    <div className='col-4'>
-                        <div className='d-flex justify-content-center'>
-                            <p className='fs-3'>Widgets</p>
-                        </div>
-                        <div>
-                            <div className="border-top border-2 border-secondary mb-2"></div>
-                            <div className='d-flex justify-content-between align-items-center'>
-                                <p className='fs-5'>Stundenplan</p>
-                                <InputGroup.Checkbox className='mb-1' checked={stundenplan} onChange={() => {toogle("stundenplan", !stundenplan)}}></InputGroup.Checkbox>
+                            <div className='d-flex justify-content-center'>
+                                <p className='fs-3'>Widgets</p>
                             </div>
-                            <div className='d-flex justify-content-between align-items-center'>
-                                <p className='fs-5'>Rechner/Schnellnotizen</p>
-                                <InputGroup.Checkbox checked={rechner} onChange={() => {toogle("rechner",!rechner)}} className='mb-1'></InputGroup.Checkbox>
-                            </div>
-                            <div className='d-flex justify-content-between align-items-center'>
-                                <p className='fs-5'>Mitteilungen</p>
-                                <InputGroup.Checkbox checked={mitteilungen} onChange={() => {toogle("mitteilung",!mitteilungen)}} className='mb-1'></InputGroup.Checkbox>
-                            </div>
-                            <div className='d-flex justify-content-between align-items-center'>
-                                <p className='fs-5'>Wetter</p>
-                                <InputGroup.Checkbox checked={wetter} onChange={() => {toogle("wetter",!wetter)}} className='mb-1'></InputGroup.Checkbox>
-                            </div>
-                            <div className='d-flex justify-content-between align-items-center'>
-                                <p className='fs-5'>Informationen</p>
-                                <InputGroup.Checkbox checked={informationen} onChange={() => {toogle("informationen",!informationen)}} className='mb-1'></InputGroup.Checkbox>
-                            </div>
-                            <div className='d-flex justify-content-between align-items-center'>
-                                <p className='fs-5'>Planerfarmerübersicht</p>
-                                <InputGroup.Checkbox checked={planerfarmerübersicht} onChange={() => {toogle("planerfarmerübersicht",!planerfarmerübersicht)}} className='mb-1'></InputGroup.Checkbox>
+                            <div>
+                                <div className="border-top border-2 border-secondary mb-2"></div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Stundenplan</p>
+                                    <InputGroup.Checkbox className='mb-1' checked={stundenplan} onChange={() => {toogle("stundenplan", !stundenplan)}}></InputGroup.Checkbox>
+                                </div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Rechner/Schnellnotizen</p>
+                                    <InputGroup.Checkbox checked={rechner} onChange={() => {toogle("rechner",!rechner)}} className='mb-1'></InputGroup.Checkbox>
+                                </div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Mitteilungen</p>
+                                    <InputGroup.Checkbox checked={mitteilungen} onChange={() => {toogle("mitteilung",!mitteilungen)}} className='mb-1'></InputGroup.Checkbox>
+                                </div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Wetter</p>
+                                    <InputGroup.Checkbox checked={wetter} onChange={() => {toogle("wetter",!wetter)}} className='mb-1'></InputGroup.Checkbox>
+                                </div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Informationen</p>
+                                    <InputGroup.Checkbox checked={informationen} onChange={() => {toogle("informationen",!informationen)}} className='mb-1'></InputGroup.Checkbox>
+                                </div>
+                                <div className='d-flex justify-content-between align-items-center'>
+                                    <p className='fs-5'>Planerfarmerübersicht</p>
+                                    <InputGroup.Checkbox checked={planerfarmerübersicht} onChange={() => {toogle("planerfarmerübersicht",!planerfarmerübersicht)}} className='mb-1'></InputGroup.Checkbox>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Card.Body>
-            </Card>
-        </div>
+                    </Card.Body>
+                </Card>
+            </div>
+        </>
     );
 }

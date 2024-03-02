@@ -29,26 +29,41 @@ export default function Startseite() {
     
 
     return (
-        <div className="container-fluid">
-            <div className='row'>
-                <div className="col-9 container_start pb-5">
-                    {showStundenplan && <Stundenplan/>}
-                    {showPlanerfarmerübersicht && <Planerfarmerübersicht/>}
-                    <div className="row">
-                        <div className="col-6">
-                            {showTaschenrechner && <Taschenrechner/>}
-                        </div>
-                        <div className="col-6">
-                            {showTaschenrechner && <Schnellnotizen/>}
-                        </div>
-                    </div>
-                </div>
-                <div className="col-3 container_start pb-5">
+        <>
+            <div className="container-fluid" id="container_respoinsive">
+                <div>
                     {showMitteilungen && <Mitteilungen/>}
+                    {showStundenplan && <Stundenplan/>}
                     {showWetter && <Wetter/>}
+                    {showPlanerfarmerübersicht && <Planerfarmerübersicht/>}
+                    {showTaschenrechner && <Taschenrechner/>}
+                    {showTaschenrechner && <Schnellnotizen/>}
                     {showInfo && <Info/>}
                 </div>
             </div>
-        </div>
+
+            <div className="container-fluid" id="container_normal">
+                <div className='row'>
+                    <div className="col-9 container_start pb-5">
+                        {showStundenplan && <Stundenplan/>}
+                        {showPlanerfarmerübersicht && <Planerfarmerübersicht/>}
+                        <div className="row">
+                            <div className="col-6">
+                                {showTaschenrechner && <Taschenrechner/>}
+                            </div>
+                            <div className="col-6">
+                                {showTaschenrechner && <Schnellnotizen/>}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-3 container_start pb-5">
+                        {showMitteilungen && <Mitteilungen/>}
+                        {showWetter && <Wetter/>}
+                        {showInfo && <Info/>}
+                    </div>
+                </div>
+            </div>
+
+        </>
     );
 }
