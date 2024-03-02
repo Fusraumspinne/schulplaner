@@ -58,13 +58,13 @@ export default function Notizen() {
         } else if(fach === "rechner"){
             setRechner(wert)
             if (wert) {
-                toast.dark('Rechner wurde hinzugefügt', {
+                toast.dark('Rechner/Schnellnotizen wurde hinzugefügt', {
                     position: "top-center",
                     autoClose: 1500,
                     type: "success"
                 });
             } else {
-                toast.dark('Rechner wurde entfernt', {
+                toast.dark('Rechner/Schnellnotizen wurde entfernt', {
                     position: "top-center",
                     autoClose: 1500,
                     type: "error"
@@ -168,7 +168,7 @@ export default function Notizen() {
                                 <InputGroup.Checkbox className='mb-1' checked={stundenplan} onChange={() => {toogle("stundenplan", !stundenplan)}}></InputGroup.Checkbox>
                             </div>
                             <div className='d-flex justify-content-between align-items-center'>
-                                <p className='fs-5'>Rechner</p>
+                                <p className='fs-5'>Rechner/Schnellnotizen</p>
                                 <InputGroup.Checkbox checked={rechner} onChange={() => {toogle("rechner",!rechner)}} className='mb-1'></InputGroup.Checkbox>
                             </div>
                             <div className='d-flex justify-content-between align-items-center'>

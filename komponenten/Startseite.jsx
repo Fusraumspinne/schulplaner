@@ -5,6 +5,7 @@ import Info from "@/komponenten/Info"
 import Taschenrechner from "@/komponenten/Taschenrechner"
 import { useState, useEffect } from 'react';
 import Planerfarmerübersicht from "@/komponenten/Planerfarmerübersicht"
+import Schnellnotizen from "@/komponenten/Schnellnotizen"
 
 export default function Startseite() {
     const [showStundenplan, setShowStundenplan] = useState(true);
@@ -32,15 +33,15 @@ export default function Startseite() {
             <div className='row'>
                 <div className="col-9 container_start pb-5">
                     {showStundenplan && <Stundenplan/>}
+                    {showPlanerfarmerübersicht && <Planerfarmerübersicht/>}
                     <div className="row">
                         <div className="col-6">
                             {showTaschenrechner && <Taschenrechner/>}
                         </div>
                         <div className="col-6">
-                            
+                            {showTaschenrechner && <Schnellnotizen/>}
                         </div>
                     </div>
-                    {showPlanerfarmerübersicht && <Planerfarmerübersicht/>}
                 </div>
                 <div className="col-3 container_start pb-5">
                     {showMitteilungen && <Mitteilungen/>}
