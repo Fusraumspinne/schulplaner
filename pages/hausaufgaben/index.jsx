@@ -1,5 +1,7 @@
 import { Button, Card, Table, InputGroup, CloseButton, Form, DropdownButton, Dropdown } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Hausaufgaben() {
 
@@ -24,6 +26,11 @@ export default function Hausaufgaben() {
                 erledigt: false
             };
             setHausaufgaben([...hausaufgaben, newHausaufgabe]);
+            toast.dark('Du hast die Aufgabe ' + aufgabe + " im Fach " + fach + " für den " + datum + " hinzugefügt", {
+                position: "top-center",
+                autoClose: 4000,
+                type: "success"
+            });
             setFach("");
             setDatum("");
             setAufgabe("");
@@ -45,10 +52,16 @@ export default function Hausaufgaben() {
         updatedHausaufgaben.splice(index, 1); 
         setHausaufgaben(updatedHausaufgaben); 
         localStorage.setItem('hausaufgaben', JSON.stringify(updatedHausaufgaben)); 
+        toast.dark('Du hast soeben eine Hausaufgabe entfernt', {
+            position: "top-center",
+            autoClose: 2000,
+            type: "error"
+        });
     }    
 
     return (
         <div className='container-fluid'>
+            <ToastContainer/>
             <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
             <Card.Body>
                 <div className='row mt-4'>

@@ -1,6 +1,8 @@
 import { Button, Card, Form, FormControl, InputGroup } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Blackjack() {
     const [coins, setCoins] = useState(0);
@@ -19,7 +21,6 @@ export default function Blackjack() {
     const [hidden, setHidden] = useState('');
     const [canHit, setCanHit] = useState(true);
     const [gameOver, setGameOver] = useState(false);
-    const [message, setMessage] = useState('');
 
     const buildDeck = () => {
         const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
@@ -104,7 +105,6 @@ export default function Blackjack() {
         setDealerAceCount(0);
         setCanHit(true);
         setGameOver(false);
-        setMessage('');
     
         if (deck.length < 15) {
             const newDeck = buildDeck();
@@ -142,7 +142,6 @@ export default function Blackjack() {
         if (newYourSum > 21) {
             setCanHit(false);
             setGameOver(true);
-            setMessage('Du hast verloren!');
             
             const newPlanerfarmer = {
                 coins: parseInt(coins) - parseInt(wetteinsatz), 
@@ -152,6 +151,12 @@ export default function Blackjack() {
             }; 
 
             localStorage.setItem('planerfarmer', JSON.stringify(newPlanerfarmer)); 
+
+            toast.dark('Du hast ' + parseInt(wetteinsatz) + " Coins verloren", {
+                position: "top-center",
+                autoClose: 1500,
+                type: "error"
+            });
         }
     };
 
@@ -175,7 +180,6 @@ export default function Blackjack() {
         }
 
         if (yourSum > 21 || (newDealerSum <= 21 && newDealerSum > yourSum)) {
-            setMessage('Du hast verloren!');
             const newPlanerfarmer = {
                 coins: parseInt(coins) - parseInt(wetteinsatz), 
                 streak: streak,
@@ -184,8 +188,13 @@ export default function Blackjack() {
             }; 
 
             localStorage.setItem('planerfarmer', JSON.stringify(newPlanerfarmer)); 
+
+            toast.dark('Du hast ' + parseInt(wetteinsatz) + " Coins verloren", {
+                position: "top-center",
+                autoClose: 1500,
+                type: "error"
+            });
         } else if (newDealerSum > 21 || newDealerSum < yourSum) {
-            setMessage('Du hast gewonnen!');
             const newPlanerfarmer = {
                 coins: parseInt(coins) + parseInt(wetteinsatz), 
                 streak: streak,
@@ -194,8 +203,18 @@ export default function Blackjack() {
             }; 
 
             localStorage.setItem('planerfarmer', JSON.stringify(newPlanerfarmer)); 
+
+            toast.dark('Du hast ' + parseInt(wetteinsatz) + " Coins gewonnen", {
+                position: "top-center",
+                autoClose: 1500,
+                type: "success"
+            });
         } else {
-            setMessage('Unentschiden!');
+            toast.dark('Unentschieden', {
+                position: "top-center",
+                autoClose: 1500,
+                type: "warning"
+            });
         }
 
         setDealerSum(newDealerSum);
@@ -216,6 +235,7 @@ export default function Blackjack() {
 
     return (
         <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
+            <ToastContainer/>
             <Card.Title className='d-flex mx-3 mt-2 fs-2'>
                 <p>Blackjack</p>
             </Card.Title>
@@ -254,7 +274,6 @@ export default function Blackjack() {
                         <div className='d-flex justify-content-center align-items-center mt-5'>
                             <Button variant='secondary' className='mx-3' onClick={hit}>Hit</Button>
                             <Button variant='secondary' className='mx-3' onClick={stay}>Stay</Button>  
-                            <p className='my-0 mx-3 fs-5' id='results'>{gameOver ? `Ergebnis: ${message}` : ''}</p>
                             {gameOver ? (
                                 <Button variant='secondary' onClick={resetGame}>Nocheinmal spielen</Button>
                             ) : (

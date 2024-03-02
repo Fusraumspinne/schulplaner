@@ -1,6 +1,8 @@
 import { Button, Card, InputGroup } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import Blackjack from "@/komponenten/Blackjack"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Planerfarmer() {
     const [coins, setCoins] = useState(0)
@@ -20,6 +22,11 @@ export default function Planerfarmer() {
             setStreak(streak + 1);
             setCoins(coins + streak * 1000 * 0.2);
             setLastTime(() => new Date());
+            toast.dark('Du hast ' + streak * 1000 * 0.2 + " Coins abgeholt", {
+                position: "top-center",
+                autoClose: 1500,
+                type: "success"
+            });
         }
     };
 
@@ -69,6 +76,7 @@ export default function Planerfarmer() {
 
     return (
         <div className='container-fluid'>
+            <ToastContainer/>
             <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
                 <Card.Title className='d-flex justify-content-between mx-3 mt-2 fs-2'>
                     <p>Planerfarmer</p>
