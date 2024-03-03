@@ -72,17 +72,17 @@ export default function Planerfarmer() {
         } else {
             setReady(false);
         }
-    });
+    }); 
 
     return (
-        <div className='container-fluid'>
-            <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
-                <Card.Title className='d-flex justify-content-between mx-3 mt-2 fs-2'>
-                    <p>Planerfarmer</p>
-                    <p>Coins: {coins}</p>
-                </Card.Title>
-                <Card.Body className='row'> 
-                    <div className='row'>
+        <>
+            <div className='container-fluid' id='planerfarmer_normal'>
+                <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
+                    <Card.Title className='d-flex justify-content-between mx-3 mt-2 fs-2'>
+                        <p>Planerfarmer</p>
+                        <p>Coins: {coins}</p>
+                    </Card.Title>
+                    <Card.Body className='row'> 
                         <div className='col-6'>
                             <div className='d-flex justify-content-center'>
                                 <p className='fs-4'>Daily-Streak</p>
@@ -110,10 +110,49 @@ export default function Planerfarmer() {
                                 <Button variant='secondary'>Upgrade</Button>
                             </div>*/}
                         </div>
-                    </div>
-                </Card.Body>
-            </Card>
-            <Blackjack/>
-        </div>
+                    </Card.Body>
+                </Card>
+                <Blackjack/>
+            </div>
+
+            <div className='container-fluid' id='planerfarmer_responsive'>
+                <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
+                    <Card.Title className='d-flex justify-content-between mx-3 mt-2 fs-2'>
+                        <p>Planerfarmer</p>
+                        <p>Coins: {coins}</p>
+                    </Card.Title>
+                    <Card.Body> 
+                        <div>
+                            <div className='d-flex justify-content-center'>
+                                <p className='fs-4'>Daily-Streak</p>
+                            </div>
+                            <div className="border-top border-2 border-secondary mb-2"></div>
+                            {ready ? (
+                                <div className='d-flex align-items-center'>
+                                    <Button onClick={claim} variant='secondary'>Claim</Button>
+                                    <p className='my-0 mx-3 fs-5'>Deine Streak: {streak}</p>
+                                    <p className='my-0 mx-3 fs-5'>Deine Belohnung: {streak * belohnung * 0.2}</p>
+                                </div>
+                            ) : (
+                                <div className='d-flex align-items-center'>
+                                    <p className='my-0 mx-3 fs-5'>Heute schon abgeholt komm morgen wieder!</p>
+                                </div>
+                            )}
+                        </div>
+                        <div>
+                            <div className='d-flex justify-content-center'>
+                                <p className='fs-4'>Upgrades/PowerUps</p>
+                            </div>
+                            <div className="border-top border-2 border-secondary mb-2"></div>
+                            {/*<div className='d-flex justify-content-between align-items-center'>
+                                <p className='my-0 mx-3 fs-5'>Daily-Bonus Upgrade</p>
+                                <Button variant='secondary'>Upgrade</Button>
+                            </div>*/}
+                        </div>
+                    </Card.Body>
+                </Card>
+                <Blackjack/>
+            </div>
+        </>
     );
 }

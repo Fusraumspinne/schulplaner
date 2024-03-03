@@ -69,6 +69,22 @@
     display: block;
 }
 
+#planerfarmer_responsive{
+    display: none;
+}
+
+#planerfarmer_normal{
+    display: block;
+}
+
+#hausaufgaben_responsive{
+    display: none;
+}
+
+#hausaufgaben_normal{
+    display: block;
+}
+
 @media screen  and (max-width: 1150px){
     .rechner{
         padding: 13px;
@@ -125,4 +141,21 @@
     #settings_normal{
         display: none;
     }
+
+    #planerfarmer_responsive{
+        display: block;
+    }
+    
+    #planerfarmer_normal{
+        display: none;
+    }
+
+    #hausaufgaben_responsive{
+        display: block;
+    }
+    
+    #hausaufgaben_normal{
+        display: none;
+    }
+    
 }
