@@ -117,9 +117,9 @@ export default function Planerfarmer() {
 
             <div className='container-fluid' id='planerfarmer_responsive'>
                 <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
-                    <Card.Title className='d-flex justify-content-between mx-3 mt-2 fs-2'>
+                    <Card.Title className='mx-3 mt-2 fs-2'>
                         <p>Planerfarmer</p>
-                        <p>Coins: {coins}</p>
+                        <p className='fs-3'>Coins: {coins}</p>
                     </Card.Title>
                     <Card.Body> 
                         <div>
@@ -128,10 +128,10 @@ export default function Planerfarmer() {
                             </div>
                             <div className="border-top border-2 border-secondary mb-2"></div>
                             {ready ? (
-                                <div className='d-flex align-items-center'>
-                                    <Button onClick={claim} variant='secondary'>Claim</Button>
-                                    <p className='my-0 mx-3 fs-5'>Deine Streak: {streak}</p>
-                                    <p className='my-0 mx-3 fs-5'>Deine Belohnung: {streak * belohnung * 0.2}</p>
+                                <div>
+                                    <p className='my-1 mx-3 fs-5'>Deine Streak: {streak}</p>
+                                    <p className='my-1 mx-3 fs-5'>Deine Belohnung: {streak * belohnung * 0.2}</p>
+                                    <Button className='my-1 mb-3 ms-3' onClick={claim} variant='secondary'>Claim</Button>
                                 </div>
                             ) : (
                                 <div className='d-flex align-items-center'>
