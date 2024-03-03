@@ -53,34 +53,16 @@
     color: white;
 } 
 
-#container_respoinsive{
-    display: none;
-}
-
-#container_normal{
-    display: block;
-}
-
-#settings_responsive{
-    display: none;
-}
-
-#settings_normal{
-    display: block;
-}
-
-#planerfarmer_responsive{
-    display: none;
-}
-
-#planerfarmer_normal{
-    display: block;
-}
-
+#container_respoinsive,
+#settings_responsive,
+#planerfarmer_responsive,
 #hausaufgaben_responsive{
     display: none;
 }
 
+#container_normal,
+#settings_normal,
+#planerfarmer_normal,
 #hausaufgaben_normal{
     display: block;
 }
@@ -126,36 +108,17 @@
 }
 
 @media screen and (max-width: 900px){
-    #container_respoinsive{
-        display: block;
-    }
-
-    #container_normal{
-        display: none;
-    }
-
-    #settings_responsive{
-        display: block;
-    }
-
-    #settings_normal{
-        display: none;
-    }
-
-    #planerfarmer_responsive{
-        display: block;
-    }
-    
-    #planerfarmer_normal{
-        display: none;
-    }
-
+    #container_respoinsive,
+    #settings_responsive,
+    #planerfarmer_responsive,
     #hausaufgaben_responsive{
         display: block;
     }
-    
+
+    #container_normal,
+    #settings_normal,
+    #planerfarmer_normal,
     #hausaufgaben_normal{
         display: none;
     }
-    
 }
