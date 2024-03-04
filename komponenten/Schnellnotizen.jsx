@@ -23,7 +23,7 @@ export default function Notizen() {
 
     return (
         <div>
-            <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3'>
+            <Card bg='dark' data-bs-theme="dark" className='mx-1 mt-3 taschenrechner_container' style={{height:"578px"}}>
                 <Card.Title className='d-flex justify-content-center mt-2 fs-2'>
                     Schnellnotizen
                 </Card.Title>
@@ -32,7 +32,7 @@ export default function Notizen() {
                         value={notizen} 
                         onChange={save} 
                         className='textarea_notizen' 
-                        rows="20"
+                        rows="14"
                     ></textarea>
                 </Card.Body>
             </Card>

@@ -105,6 +105,10 @@
     .container_output{
         width: 200px;
     }
+
+    .taschenrechner_container{
+        height: 434px !important;
+    }
 }
 
 @media screen and (max-width: 900px){
