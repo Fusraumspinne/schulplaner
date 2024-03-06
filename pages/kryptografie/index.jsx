@@ -33,46 +33,33 @@ export default function Kryptografie() {
         { id: 26, letter: 'Z' },
     ]);
 
-    const [neuAlphabet, setNeuAlphabet] = useState([])
-
-    const [klartext, setKlartext] = useState("")
-    const [geheimtext, setGeheimtext] = useState("")
-
-    const [klartextArray, setKlartextArray] = useState([])
+    const [klartext, setKlartext] = useState("");
+    const [geheimtext, setGeheimtext] = useState("");
 
     useEffect(() => {
-        setNeuAlphabet(alphabet)
-    }, [])
-
-    useEffect(() => {
-        updateTextArrays(klartext, setKlartextArray);
-            
-        const klartextZuGeheimtext = klartextArray.map(char => {
-            if (char === " ") { 
-                return " ";
-            }
-            const letterObj = neuAlphabet.find(item => item.letter === char)
-            const letterObjId = letterObj.id 
-            const shiftedAlphabet = shiftAlphabet(alphabet, letterObjId);
-            return letterObj ? shiftedAlphabet[letterObjId - 1].letter : char;
-        })
-    
-        setGeheimtext(klartextZuGeheimtext.join('')); 
+        verschlüsseln();
     }, [klartext]);
-    
-    const updateTextArrays = (text, setTextArray) => {
-        const array = text.toUpperCase().split("");
-        setTextArray(array);
-    };
 
-    const shiftAlphabet = (alphabet, shiftAmount) => {
-        const shiftedAlphabet = [...alphabet];
-        for (let i = 0; i < shiftAmount; i++) {
-            const shiftedLetter = shiftedAlphabet.shift();
-            shiftedAlphabet.push(shiftedLetter);
+    const verschlüsseln = () => {
+        const klartextArray = klartext.toUpperCase().split("");
+        let verschlüsselterText = "";
+
+        for (let i = 0; i < klartextArray.length; i++) {
+            if (klartextArray[i] === " ") {
+                verschlüsselterText += " ";
+                continue;
+            }
+            let summe = 0;
+            for (let j = 0; j <= i; j++) {
+                summe += alphabet.findIndex((item) => item.letter === klartextArray[j]) + 1;
+            }
+            let index = summe % 26;
+            if (index < 0) index += 26;
+            verschlüsselterText += alphabet[index].letter;
         }
-        return shiftedAlphabet;
-    }
+
+        setGeheimtext(verschlüsselterText);
+    };
 
     return (
         <div className='container-fluid'>
@@ -88,7 +75,7 @@ export default function Kryptografie() {
                     </InputGroup>
                     <p className='fs-3 mt-5'>Geheimtext:</p>
                     <InputGroup>
-                        <Form.Control placeholder='Geheimtext' onChange={(e) => setGeheimtext(e.target.value)} value={geheimtext}></Form.Control>
+                        <Form.Control placeholder='Geheimtext' value={geheimtext} readOnly></Form.Control>
                     </InputGroup>
                 </Card.Body>
             </Card>
